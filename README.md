@@ -2,6 +2,15 @@
 
 Create PDFs using plain old HTML+CSS. Uses [wkhtmltopdf](http://github.com/antialize/wkhtmltopdf) on the back-end which renders HTML using Webkit.
 
+## ACDCORP versions
+We are hosting several gems that our projects are using because, bundle requires
+them from custom fork or original repo where they can get updates and crash our
+projects, therefore, every gem fork contains the following branch(es):
+
+  * fork-stable => Stable or initial branch from fork
+  * x.x-acdcorp-stable => custom stable version
+  * master => continues development and tracking original repos
+
 ## Install
 
 ### PDFKit
@@ -141,13 +150,13 @@ Will cause the .pdf to be saved to `path/to/saved.pdf` in addition to being sent
    around this issue you may want to run a server with multiple workers
    like Passenger or try to embed your resources within your HTML to
    avoid extra HTTP requests.
-   
+
    Example solution (rails / bundler), add unicorn to the development
    group in your Gemfile `gem 'unicorn'` then run `bundle`. Next, add a
    file `config/unicorn.conf` with
-   
+
         worker_processes 3
-   
+
    Then to run the app `unicorn_rails -c config/unicorn.conf` (from rails_root)
 
 *  **Resources aren't included in the PDF:** Images, CSS, or JavaScript
